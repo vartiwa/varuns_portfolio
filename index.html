@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- SEO Meta Tags -->
 <meta name="description" content="Portfolio of Varun Tiwari, a B.Tech CSE (AI & ML) student at VIT Bhopal. Specializing in full-stack development, MERN, Next.js, and applied Machine Learning.">
 <meta name="keywords" content="Varun Tiwari, Portfolio, Full-Stack Developer, MERN, Next.js, Machine Learning, VIT Bhopal, AI, ML, Software Engineer">
 <meta name="author" content="Varun Tiwari">
@@ -224,6 +225,7 @@
 </head>
 <body>
 
+<!-- Floating Theme Toggle for Desktop -->
 <button id="theme-toggle-desktop" class="theme-btn-fixed" aria-label="Toggle Dark Mode">
   <span class="moon-icon">☾</span>
 </button>
@@ -272,6 +274,7 @@
       <div class="hero-mid">
         <div class="hero-photo-wrap">
           <div class="hero-photo" style="display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--blue-600), var(--blue-400)); border-radius: 50%; width: 120px; height: 120px; box-shadow: 0 12px 30px rgba(0,0,0,0.35);">
+            <!-- SVG Profile Avatar Placeholder -->
             <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: var(--navy-950); opacity: 0.85;">
               <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12Z" fill="currentColor"/>
               <path d="M12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" fill="currentColor"/>
@@ -309,6 +312,7 @@
   <section id="credentials" class="section" style="padding-top:0;">
     <div class="cred-grid">
       
+      <!-- EDUCATION -->
       <div class="cred-card">
         <div class="card-title-wrap">
           <img src="./icons/mortarboard.gif" alt="Education" class="anim-icon">
@@ -320,6 +324,7 @@
         <p class="cred-note">Currently pursuing my degree with a CGPA of 8.31.</p>
       </div>
 
+      <!-- EXPERIENCE -->
       <div class="cred-card">
         <div class="card-title-wrap">
           <img src="./icons/diploma.gif" alt="Experience" class="anim-icon">
@@ -331,6 +336,7 @@
         <p class="cred-note">Gained hands-on industry exposure building and optimizing responsive frontend web interfaces.</p>
       </div>
 
+      <!-- CERTIFICATIONS -->
       <div class="cred-card">
         <div class="card-title-wrap">
           <img src="./icons/book.gif" alt="Certifications" class="anim-icon">
@@ -344,6 +350,7 @@
         </ul>
       </div>
 
+      <!-- LEADERSHIP -->
       <div class="cred-card">
         <div class="card-title-wrap">
           <img src="./icons/leadership.gif" alt="Leadership" class="anim-icon">
@@ -389,13 +396,34 @@
       <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--blue-600);">Get in touch</div>
       <h2>Let's work together.</h2>
       <p>Hiring, collaborating, or just want to say hi — leave your details below and I'll get back to you.</p>
-      <form class="cform" id="cform">
-        <div><label>Your name</label><input required id="cf-name" placeholder="Jane Doe"></div>
-        <div><label>Your email</label><input required type="email" id="cf-email" placeholder="jane@company.com"></div>
-        <div class="full"><label>Company / role (optional)</label><input id="cf-company" placeholder="Hiring Manager at Acme Co."></div>
-        <div class="full"><label>Message</label><textarea required id="cf-message" placeholder="Tell me a bit about the role or project..."></textarea></div>
+      
+      <!-- UPDATED WEB3FORMS CONTACT FORM -->
+      <form class="cform" action="https://api.web3forms.com/submit" method="POST">
+        
+        <!-- The Access Key is now embedded -->
+        <input type="hidden" name="access_key" value="7a3a19ea-ffcd-4aa1-b89b-c2e9138986b5">
+        <!-- Redirects the user to a success page after sending -->
+        <input type="hidden" name="redirect" value="https://web3forms.com/success">
+
+        <div>
+          <label>Your name</label>
+          <input type="text" name="name" required placeholder="Jane Doe">
+        </div>
+        <div>
+          <label>Your email</label>
+          <input type="email" name="email" required placeholder="jane@company.com">
+        </div>
+        <div class="full">
+          <label>Company / role (optional)</label>
+          <input type="text" name="company" placeholder="Hiring Manager at Acme Co.">
+        </div>
+        <div class="full">
+          <label>Message</label>
+          <textarea name="message" required placeholder="Tell me a bit about the role or project..."></textarea>
+        </div>
         <button class="csubmit" type="submit">Send message</button>
       </form>
+      
       <div class="cnote" id="cnote"></div>
       <div class="clinks">
         <a href="mailto:varunt154@gmail.com">varunt154@gmail.com</a>
@@ -440,19 +468,6 @@ PROJECTS.forEach(p => {
   });
   card.querySelector('.pcard-link').addEventListener('click', e => e.stopPropagation());
   grid.appendChild(card);
-});
-
-document.getElementById('cform').addEventListener('submit', e => {
-  e.preventDefault();
-  const name = document.getElementById('cf-name').value.trim();
-  const email = document.getElementById('cf-email').value.trim();
-  const company = document.getElementById('cf-company').value.trim();
-  const message = document.getElementById('cf-message').value.trim();
-  const subject = encodeURIComponent(`Portfolio contact from ${name}`);
-  const bodyLines = [`Name: ${name}`, `Email: ${email}`, company ? `Company / role: ${company}` : null, '', message].filter(Boolean);
-  const body = encodeURIComponent(bodyLines.join('\n'));
-  window.location.href = `mailto:varunt154@gmail.com?subject=${subject}&body=${body}`;
-  document.getElementById('cnote').textContent = 'Opening your email app to send this — if nothing happens, email me directly below.';
 });
 
 /* ---- DARK MODE TOGGLE LOGIC ---- */
